@@ -80,7 +80,7 @@ class Crc16Tests: XCTestCase {
     
     func test_crc16ccittTestPerformance() {
         self.measure {
-            _ = Crc16Ccitt.computeChecksum( with: Crc16InitialValue.x0000, on: Crc8Tests.TestBuffer );
+            _ = Crc16Ccitt.computeChecksum( with: Crc16InitialValue.x0000, on: Crc16Tests.TestBuffer );
         }
     }
     
@@ -95,7 +95,7 @@ class Crc16Tests: XCTestCase {
     
     func test_crc16ccitt1d0fTestPerformance() {
         self.measure {
-            _ = Crc16Ccitt.computeChecksum( with: Crc16InitialValue.x1D0F, on: Crc8Tests.TestBuffer );
+            _ = Crc16Ccitt.computeChecksum( with: Crc16InitialValue.x1D0F, on: Crc16Tests.TestBuffer );
         }
     }
     
@@ -110,7 +110,7 @@ class Crc16Tests: XCTestCase {
     
     func test_crc16ccittffffTestPerformance() {
         self.measure {
-            _ = Crc16Ccitt.computeChecksum( with: Crc16InitialValue.xFFFF, on: Crc8Tests.TestBuffer );
+            _ = Crc16Ccitt.computeChecksum( with: Crc16InitialValue.xFFFF, on: Crc16Tests.TestBuffer );
         }
     }
 
@@ -155,7 +155,7 @@ class Crc32Tests: XCTestCase {
     
     
     func test_crc32Validation() {
-        XCTAssertEqual( Crc32.computeChecksum( on: Crc8Tests.TestBuffer), Crc32Tests.Crc32Crc );
+        XCTAssertEqual( Crc32.computeChecksum( on: Crc32Tests.TestBuffer), Crc32Tests.Crc32Crc );
     }
     
     func test_crc32SegmentValidation() {
