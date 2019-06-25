@@ -1,14 +1,11 @@
+language: swift
+
 branches:
   only:
     - master
 
 matrix:
   include:
-    - os: linux
-      dist: xenial
-      sudo: required
-      services: docker
-      env: DOCKER_IMAGE=swift:4.2.4 SWIFT_SNAPSHOT=4.2.4 SWIFT_TEST_ARGS="--parallel"
     - os: linux
       dist: xenial
       sudo: required
