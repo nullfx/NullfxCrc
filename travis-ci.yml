@@ -1,0 +1,26 @@
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      sudo: required
+      services: docker
+      env: DOCKER_IMAGE=swift:4.2.4 SWIFT_SNAPSHOT=4.2.4 SWIFT_TEST_ARGS="--parallel"
+    - os: linux
+      dist: xenial
+      sudo: required
+      services: docker
+      env: DOCKER_IMAGE=swift:5.0.1-xenial SWIFT_TEST_ARGS="--parallel"
+    - os: osx
+      osx_image: xcode10.2
+      sudo: required
+      env: SWIFT_SNAPSHOT=$SWIFT_DEVELOPMENT_SNAPSHOT SWIFT_TEST_ARGS="--parallel"
+
+before_install:
+  - git clone https://github.com/nullfx/NullfxCrc.git
+
+script:
+  - ./Package-Builder/build-package.sh -projectDir $TRAVIS_BUILD_DIR
